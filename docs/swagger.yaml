@@ -1,0 +1,52 @@
+basePath: /
+definitions:
+  main.RequestBody:
+    properties:
+      fake_value:
+        type: string
+      fake_value2:
+        type: string
+      fake_value3:
+        type: string
+    type: object
+  main.ResponseStruct:
+    properties:
+      status:
+        type: string
+      time:
+        type: string
+    type: object
+host: localhost:1323
+info:
+  contact: {}
+  description: This is a sample server server.
+  title: Echo Swagger Example API
+  version: "1.0"
+paths:
+  /health:
+    post:
+      consumes:
+      - application/json
+      - '*/*'
+      description: get the status of server.
+      parameters:
+      - description: request body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.RequestBody'
+      produces:
+      - application/json
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.ResponseStruct'
+      summary: Show the status of server.
+      tags:
+      - root
+schemes:
+- http
+swagger: "2.0"
